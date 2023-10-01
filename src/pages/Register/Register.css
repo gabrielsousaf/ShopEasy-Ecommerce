@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register{
+  background-color: #fff;
+  padding-top: 15rem;
+  margin-bottom: 5rem;
+}
+
+.register form{
+  margin: 0 auto;
+  max-width: 40%;
+}
+
+.register form label{
+  font-family: 'Outfit', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  font-size: 1.1rem;
+}
+
+.register form label span {
+  margin-bottom: 0.3em;
+  text-align: left;
+}
+
+.register form label input{
+  /* font-family: 'Outfit', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+  background-color: initial;
+  border: none;
+  border: 2px solid #ccc;
+  padding: 0.8em 10px;
+  outline: none;
+}
+
+.register form .RegisterBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.register form .RegisterBtn button{
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  width: 100%;
+  padding: 0.6em 0;
+  background-color: #FF7D1B;
+  border: none;
+  font-size: 18px;
+}
+
+.register form .RegisterBtn .error{
+  font-family: "Montserrat", sans-serif;
+  margin-top: 1rem;
+  padding: 0.6em 0;
+  background-color: #f8d7da;
+  border:  1px solid #f5c6cb;
+  border-radius: 5px;
+  color: #721c24;
+}
+
+.register .ButtonLogin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.register .ButtonLogin p{
+  font-family: 'Montserrat', sans-serif;
+  color: #898989;
+}
+
+.register .ButtonLogin p a{
+  color: #191919;
+  cursor: pointer;
+  transition: 300ms all ease;
+}
+
+.register .ButtonLogin p a:hover{
+  color: #FF7D1B;
+}
+
+@media(max-width:1200px){
+  .register{
+    padding-top: 10rem;
+  }
+}
+
+@media(max-width:768px){
+
+  .register form{
+    min-width: 80%;
+  }
+}
