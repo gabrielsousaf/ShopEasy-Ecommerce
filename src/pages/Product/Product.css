@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+.ContainerProduct{
+  padding-top: 12rem;
+  padding-bottom: 5rem;
+  display: flex;
+  width: 70vw;
+  margin: 80px auto;
+  gap: 6rem;
+}
+
+.ContainerProduct .product-image{
+  width: 50%;
+  height: 100%;
+}
+
+.ContainerProduct .product-image img{
+  width: 100%;
+  height: 50vh;
+}
+
+.ContainerProduct .product-info{
+  width: 50%;
+}
+
+.ContainerProduct .product-info h2{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.ContainerProduct .product-info p{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 25px 0px;
+  text-align: justify;
+}
+
+.ContainerProduct .product-info strong{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.ContainerProduct .QuantityButton{
+  margin-top: 20px;
+  gap: 20px;
+  display: flex;
+}
+
+.ContainerProduct .QuantityButton .quantity-product{
+  display: flex;
+  max-width: 100px;
+  -webkit-animation: justify;
+  justify-content: space-between;
+  padding: 0px 5px;
+  border-radius: 8px;
+  background: #f7f8fd;
+  border: 1px solid #e5e5e5 ;
+}
+
+.ContainerProduct .QuantityButton .quantity-product button{
+  font-size: 30px;
+  background: transparent;
+  border: none;
+  color:#ff7d1b ;
+  cursor: pointer;
+}
+
+.ContainerProduct .QuantityButton .quantity-product input{
+  width: 20%;
+  background: transparent;
+  border: none;
+  margin-left: 6px;
+}
+
+.ContainerProduct .QuantityButton .Button{
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: #fff;
+  background: #ff7d1b;
+  box-shadow:rgba(255, 125, 27, 0.56) 0px 3px 21px -2px; ;
+  outline: none;
+  border:none;
+  transition: 300ms all ease;
+}
+
+
+.ContainerProduct .QuantityButton .Button svg{
+  margin-right: 8px;
+}
+
+.ContainerProduct .QuantityButton .Button:hover{
+  background-color: #FF9749;
+}
+
+
+
+@media(max-width:1200px){
+  .ContainerProduct{
+    padding-top: 5rem;
+    flex-wrap: wrap;
+    width: 100vw;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ContainerProduct .product-image{
+    display: flex;
+    background-color: blue;
+    width: 70%;
+    margin: 0px auto;
+  }
+
+  .ContainerProduct .product-image img{
+    width: 100%;
+    height: 50vh;
+  }
+
+  .ContainerProduct .product-info{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    align-items: start;
+    text-align: start;
+  }
+
+  .ContainerProduct .QuantityButton{
+    justify-content: center;
+  }
+
+  .ContainerProduct .QuantityButton .Button{
+    font-family: 'Arial';
+    font-size: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ContainerProduct .QuantityButton .Button svg{
+    display: flex;
+    text-align: center;
+  }
+
+  .ContainerProduct .QuantityButton .Button span{
+    display: none;
+  }
+}

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.container-products{
+  padding-top: 12rem;
+  margin: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-products div h1{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.container-products div .product{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container-products div .product .container-product{
+  margin: 2.5rem;
+}
+
+@media(max-width:1200px){
+  .container-products{
+    padding-top: 8rem;
+  }
+}
+
+@media(max-width:768px){
+  .container-products div h1{
+    font-size: 1.5rem;
+  }
+}

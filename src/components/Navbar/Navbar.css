@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none!important;
+  outline: none;
+  transition: 300ms all ease;
+}
+
+header .container-header-1 .hamburguer{
+  display: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-size: 1.6rem ;
+}
+
+header .container-header-1 .hamburguer .hambuguer-line{
+  width: 100%;
+  font-size: 24px;
+  height: 20px;
+  color: red;
+  margin: 6px 0;
+  transition: all 0.3s ease;
+}
+
+header .container-header-1 .hamburguer.active.hambuguer-line{
+  background-color: black;
+}
+
+
+
+
+header{
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  min-width: 100%;
+}
+
+header .container-header-1{
+  min-width: 100%;
+
+  display: flex;
+  padding: 1.5rem 2rem;
+  justify-content: space-between;
+  background-color: #fff;
+  align-items: center;
+  border: 1px solid rgb(181, 181, 181);
+  box-shadow: rgba(0, 0, 0, 0.37) 0px 3px 6px -1px;
+}
+
+
+header .container-header-1 .LogoForm{
+  display: flex;
+  align-items: center;
+}
+
+header .container-header-1 .LogoForm a h1{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  /* color: #FF7D1B; */
+  color: #751FFF;
+}
+
+header .container-header-1 .LogoForm .search-container {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin-left: 3rem;
+}
+
+header .container-header-1 .LogoForm .search-container .search-form {
+  width: 30rem;
+  height: 3rem; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: 2rem; */
+}
+
+header .container-header-1 .LogoForm .search-container .search-form input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding: 0 1.2rem;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  border: none;
+  outline: none;
+}
+
+header .container-header-1 .LogoForm .search-container .search-form button {
+  cursor: pointer;
+  width: 50px;
+  height: 100%;
+  background-color: transparent;
+  color: #fff;
+  /* background-color: #FF7D1B; */
+  background: #751FFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 5px 5px 0;
+}
+
+header .container-header-1 .LogoForm .search-container .search-form button svg {
+  font-size: 25px;
+}
+
+
+
+header .container-header-1 .LoginCart{
+  display: flex;
+}
+
+header .container-header-1 .LoginCart .search {
+  display: none;
+}
+
+header .container-header-1 .LoginCart a,
+header .container-header-1 .LoginCart p {
+  display:flex;
+  align-items: center;
+  align-items: center;
+  margin-left: 1.5rem;
+  font-size: 1.6rem;
+  color: #444;
+  cursor: pointer;
+}
+
+header .container-header-1 .LoginCart a p,
+header .container-header-1 .LoginCart p{
+  font-size: 1.1rem;
+  font-family: "Montserrat", "sans-serif";
+  font-weight: 400;
+}
+
+header .container-header-1 .LoginCart a p:hover,
+header .container-header-1 .LoginCart p:hover{
+  color: #751fff;
+}
+
+header .container-header-1 .LoginCart a svg:hover {
+  color: #751fff ;
+}
+
+header .container-header-1 .LoginCart .cart span{
+  text-align: center;
+  padding: 1.5px;
+  width: 1rem;
+  background-color: #444;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 50%;
+}
+
+header #container-header2{
+  background-color: #EDECEC;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid rgb(181, 181, 181);
+  box-shadow: rgba(0, 0, 0, 0.37) 0px 3px 6px -1px;
+}
+
+header #container-header2 .RegisterLogin,
+header #container-header2 #RegisterAndLogin{
+  display: none;
+}
+
+header #container-header2 .navbar{
+  margin-left: 1.3rem;
+  display: block;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+header #container-header2 .navbar a{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: black;
+  /* display: inline-block; */
+  /* padding: 0.6rem; */
+  font-size: 0.9rem;
+  margin-right: 1.8rem;
+}
+
+header #container-header2 .navbar a:hover,
+.dropbtn:hover{
+  color: #751fff;
+}
+
+
+
+
+
+@media(max-width:1200px){
+
+  header .container-header-1 .hamburguer{
+    display: flex;
+    color: #444;
+    margin-left: 1rem;
+  }
+
+
+  header #container-header2{
+    display: block;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color:white ;
+    padding: 1rem;
+    position: absolute;
+    top: -700px;
+    left: 0;
+    right: 0;
+    transition: all .40s ease;
+  }
+
+  header #container-header2.show{
+    top: 100%;
+  }
+
+  
+  header .container-header-1 .LoginCart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  header .container-header-1 .LoginCart a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  header .container-header-1 .LoginCart .search,
+  header .container-header-1 .LoginCart .user{
+    display: flex;
+  }
+
+  header .container-header-1 .LoginCart .RegisterLogin,
+  header .container-header-1 .LoginCart #RegisterAndLogin{
+    display: none;
+    border: none;
+    background-color: transparent;
+  }
+
+
+
+  header .container-header-1 .LogoForm .search-container{
+    background-color: transparent;
+    display: block;
+    margin: 0;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 1rem;
+    position: absolute;
+    top: -700px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    transition: all .40s ease;
+  }
+
+  header .container-header-1 .LogoForm .search-container .search-form{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 70%;
+    height: 3rem; 
+  }
+
+  header .container-header-1 .LogoForm .search-container .search-form input{
+    border: 0.5px solid black;
+  }
+  
+  header .container-header-1 .LogoForm .search-container.activeSearch{
+    top: 100%;
+  }
+
+
+  
+  header #container-header2 .navbar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+  }
+
+  header #container-header2 .navbar a{
+    display: flex;
+    width: 100%; 
+    padding-top: 0.6rem;
+    margin-top: 1rem;
+    margin-left: 0;
+    font-size: 1.3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }  
+
+  header #container-header2 .RegisterLogin,
+  header #container-header2 #RegisterAndLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-family: "Montserrat", sans-serif;
+    color: #444;
+    transition: .30s all ease;
+  }
+  
+  header #container-header2 .RegisterLogin:hover,
+  header #container-header2 #RegisterAndLogin:hover{
+    color: #D76D1B;
+  }
+  
+  header #container-header2 .RegisterLogin,
+  header #container-header2 #RegisterAndLogin{
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    padding-top: 0.8rem;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  header .container-header-1 .LogoForm a h1{
+    font-size: 2rem;
+  }
+
+  header .container-header-1 .LoginCart a{
+    font-size: 1.4rem;
+    margin-left: 1.2rem;
+  }
+
+  header .container-header-1 .hamburguer{
+    font-size: 1.4rem;
+  } 
+
+
+}
