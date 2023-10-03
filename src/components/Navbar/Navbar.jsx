@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom"
 import { useAuthentication } from "../../hooks/UseAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
+
 import Cart from "../Cart/Cart"
 
 import { FaSearch, FaShoppingCart, FaAlignJustify } from "react-icons/fa";
@@ -11,6 +13,8 @@ import { FaSearch, FaShoppingCart, FaAlignJustify } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 
 const Navbar = () => {
+
+  const { totalQuantity } = useCart();
 
   const { login, createUser } = useAuthentication();
   const { logout } = useAuthentication();
@@ -34,7 +38,15 @@ const Navbar = () => {
     return () => {
       window.removeEventListener('scroll', handleScrollClose);
     }
-  }, [showMenu])
+  }, [showMenu]);
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      const parsedCart = JSON.parse(storedCart);
+      // Faça algo com parsedCart, como exibir a contagem de itens no carrinho
+    }
+  }, []);
 
   const handleMenuToggle = () => {
     setShowMenu((prevState) => !prevState)
@@ -113,7 +125,7 @@ const Navbar = () => {
 
           <NavLink className="cart" onClick={handleCartToogle}>
             <FaShoppingCart />
-            <span>2</span>
+            <span>{totalQuantity}</span>
           </NavLink>
 
           <button className="hamburguer d-none" onClick={handleMenuToggle}>

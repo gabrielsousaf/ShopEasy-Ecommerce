@@ -2,15 +2,17 @@ import "./Product.css";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchProduct
- } from "../../services/api";
+import { fetchProduct } from "../../services/api";
+
+import { useCart } from "../../context/CartContext";
 
 import { FaShoppingCart } from "react-icons/fa"
 
 const Product = () => {
+  const { addToCart } = useCart();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     fetchProduct(id)
@@ -24,6 +26,17 @@ const Product = () => {
 
   if (!product) {
     return <div>Loading...</div>;
+  }
+
+  const handleAddToCart = () => {
+    const productToAdd ={
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity:quantity,
+    }
+
+    addToCart(productToAdd);
   }
 
 
@@ -53,7 +66,7 @@ const Product = () => {
             <button type="button" onClick={() => setQuantity(quantity + 1) }>+</button>
           </div>
 
-          <button className="Button">
+          <button className="Button" onClick={handleAddToCart}>
             <FaShoppingCart />
             <span>
               Adicionar no carrinho           

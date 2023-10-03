@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 import { useState, useEffect } from "react";
 import { useAuthentication } from "../hooks/UseAuthentication";
+import { CartProvider } from "../context/CartContext"
 
 import Home from "../pages/Home/Home";
 import Register from "../pages/Register/Register";
@@ -38,31 +39,33 @@ const AppRoutes = () => {
 
   return (
     <AuthProvider value={{ user }}>
-      <Routes>
-        <Route element={<App />}>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/register"
-            element={!user ? <Register /> : <Navigate to="/" />}
-          />
+      <CartProvider>
+        <Routes>
+          <Route element={<App />}>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/register"
+              element={!user ? <Register /> : <Navigate to="/" />}
+            />
 
-          <Route
-            path="/login"
-            element={!user ? <Login /> : <Navigate to="/" />}
-          />
+            <Route
+              path="/login"
+              element={!user ? <Login /> : <Navigate to="/" />}
+            />
 
-          <Route path="/products" element={<Store />} />
-          <Route path="/products/:id" element={<Product />} />
-          <Route path="/products/men" element={<ProductsMen />} />
-          <Route path="/products/women" element={<ProductsWomen />} />
-          <Route
-            path="/products/electronics"
-            element={<ProductsElectronics />}
-          />
-          <Route path="/products/jewelery" element={<ProductsJewelery />} />
-          <Route path='/search' element={<Search />} />
-        </Route>
-      </Routes>
+            <Route path="/products" element={<Store />} />
+            <Route path="/products/:id" element={<Product />} />
+            <Route path="/products/men" element={<ProductsMen />} />
+            <Route path="/products/women" element={<ProductsWomen />} />
+            <Route
+              path="/products/electronics"
+              element={<ProductsElectronics />}
+            />
+            <Route path="/products/jewelery" element={<ProductsJewelery />} />
+            <Route path='/search' element={<Search />} />
+          </Route>
+        </Routes>
+      </CartProvider>
     </AuthProvider>
   );
 };
