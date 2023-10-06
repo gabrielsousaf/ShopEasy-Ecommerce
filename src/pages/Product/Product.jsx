@@ -17,7 +17,10 @@ const Product = () => {
   useEffect(() => {
     fetchProduct(id)
       .then((data) => {
-        setProduct(data);
+        setProduct({
+          ...data,
+          image: data.image,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -31,14 +34,14 @@ const Product = () => {
   const handleAddToCart = () => {
     const productToAdd ={
       id: product.id,
-      name: product.name,
+      title: product.title,
       price: product.price,
       quantity:quantity,
+      image: product.image,
     }
 
     addToCart(productToAdd);
   }
-
 
   return (
     <div className="ContainerProduct">

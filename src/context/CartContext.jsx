@@ -12,14 +12,20 @@ export function CartProvider({ children }) {
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
+  const updateLocalStorage = (updatedCart) => {
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
 
 
   const calculateTotalQuantity = () => {
     return cart.reduce((total, product) => total + product.quantity, 0);
   };
+
   useEffect(() => {
     setTotalQuantity(calculateTotalQuantity());
+    updateLocalStorage(cart);
   }, [cart]);
+
   const [totalQuantity, setTotalQuantity] = useState(calculateTotalQuantity());
 
 
@@ -33,11 +39,9 @@ export function CartProvider({ children }) {
       updatedCart[existingProductIndex].quantity += product.quantity;
       setCart(updatedCart);
     } else {
-      const updatedCart = [...cart, product];
+      const updatedCart = [...cart, { ...product, title: product.title, image: product.image}];
       setCart(updatedCart);
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
 
@@ -46,7 +50,7 @@ export function CartProvider({ children }) {
     const updatedCart = cart.map((item) => {
       if (item.id === productId) {
         if (item.quantity + quantityChange < 1) {
-          return null; 
+          return null;
         }
         return {
           ...item,
@@ -59,17 +63,13 @@ export function CartProvider({ children }) {
     const filteredCart = updatedCart.filter((item) => item !== null);
 
     setCart(filteredCart);
-    localStorage.setItem("cart", JSON.stringify(filteredCart));
   };
-
 
 
   const removeFromCart = (productId) => {
     const updatedCart = cart.filter((product) => product.id !== productId);
     setCart(updatedCart);
   };
-  
-
 
   const calculateTotalPrice = () => {
     return cart.reduce(
@@ -78,11 +78,8 @@ export function CartProvider({ children }) {
     );
   };
 
-  
-  
   const removeAllFromCart = () => {
     setCart([]);
-    localStorage.removeItem("cart");
   };
 
 
