@@ -6,7 +6,7 @@ main {
     padding-bottom: 1rem;
 }
 
-main .container{
+main .ContainerHome{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -16,7 +16,7 @@ main .container{
 }
 
 
-main .container .container-image{
+main .ContainerHome .container-image{
     position: relative;
     display: flex;
     width: 400px;
@@ -30,7 +30,7 @@ main .container .container-image{
     cursor: pointer;
 }
 
-main .container .container-image img{
+main .ContainerHome .container-image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -38,11 +38,11 @@ main .container .container-image img{
     border-radius: 1rem;
 }    
 
-main .container .container-image img:hover{
+main .ContainerHome .container-image img:hover{
     opacity: 0.5;
 }
 
-main .container .container-image .text{
+main .ContainerHome .container-image .text{
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -51,13 +51,13 @@ main .container .container-image .text{
     color: #fff;
 }
 
-main .container .container-image .text h1{
+main .ContainerHome .container-image .text h1{
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2rem;
 }
 
-main .container .container-image .text a{
+main .ContainerHome .container-image .text a{
     font-family: 'Montserrat', sans-serif;
     padding: 10px 20px;
     margin-top: 10px;
@@ -69,7 +69,7 @@ main .container .container-image .text a{
     border-radius: 0.8rem;
 }
 
-main .container .container-image .text a:hover{
+main .ContainerHome .container-image .text a:hover{
     filter: brightness(1.1);
 }
 
@@ -157,7 +157,7 @@ main .container-products div .LinkProducts:hover{
         padding-top: 5rem;
     }
 
-    main .container .container-image{
+    main .ContainerHome .container-image{
         width: 300px;
         height: 300px; 
     }

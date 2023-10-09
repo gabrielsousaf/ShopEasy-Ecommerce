@@ -1,12 +1,15 @@
 import "./Product.css";
 
+import { Helmet } from "react-helmet";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProduct } from "../../services/api";
 
 import { useCart } from "../../context/CartContext";
 
-import { FaShoppingCart } from "react-icons/fa"
+import { FaShoppingCart } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 const Product = () => {
   const { addToCart } = useCart();
@@ -32,6 +35,9 @@ const Product = () => {
   }
 
   const handleAddToCart = () => {
+    toast.success("Produto adicionado ao carrinho", {
+      position: toast.POSITION.TOP_LEFT
+    })
     const productToAdd ={
       id: product.id,
       title: product.title,
@@ -45,6 +51,7 @@ const Product = () => {
 
   return (
     <div className="ContainerProduct">
+      <Helmet title={`${product.title}`} />
       <div className="product-image">
         <img src={product.image} />
       </div>

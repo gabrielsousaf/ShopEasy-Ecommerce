@@ -1,6 +1,8 @@
 import { useCart } from "../../context/CartContext";
 import { FaTrash } from "react-icons/fa"
 
+import { toast } from "react-toastify";
+
 
 const CartItem = ({ product }) => {
   console.log("Product in CartItem:", product);
@@ -15,7 +17,10 @@ const CartItem = ({ product }) => {
   };
 
   const handleRemove = () => {
+    toast.warning("Produto removido do carrinho!")
     removeFromCart(product.id);
+    console.log("teste")
+
   };
 
   const formattedPrice = (Math.round(product.price * 100) / 100).toFixed(2);

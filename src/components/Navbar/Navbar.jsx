@@ -44,7 +44,6 @@ const Navbar = () => {
     const storedCart = localStorage.getItem("cart");
     if (storedCart) {
       const parsedCart = JSON.parse(storedCart);
-      // Faça algo com parsedCart, como exibir a contagem de itens no carrinho
     }
   }, []);
 
@@ -67,6 +66,9 @@ const Navbar = () => {
     if (!search) return;
     navigate(`/search?q=${search}`, { replace: true});
     setSearch("");
+    const SearchFormMedia = document.getElementById("SearchFormMedia")
+    SearchFormMedia.classList.remove("activeSearch")
+    
   }
 
   const handleCartToogle = () => {
@@ -83,7 +85,7 @@ const Navbar = () => {
             <h1>ShopEasy</h1>
           </NavLink>
 
-          <div className={`search-container ${showSearch ? "activeSearch" : ""}`}>
+          <div id="SearchFormMedia" className={`search-container ${showSearch ? "activeSearch" : ""}`}>
             <form className="search-form" onSubmit={handleSubmit}>
               <input
                 type="text"

@@ -55,12 +55,31 @@
 
 .cart-container .cart-content ul{
   margin-top: 4rem;
+  overflow-y: auto;
+  max-height: 75%;
 }
+
+.cart-container .cart-content ul::-webkit-scrollbar {
+  width: 2px;
+}
+
+.cart-container .cart-content ul::-webkit-scrollbar-thumb {
+  background-color: #751FFF;
+  border-radius: 6px; 
+}
+
+.cart-container .cart-content ul::-webkit-scrollbar-track {
+  background-color: #f7f8fd;
+  border-radius: 6px;
+}
+
 
 .cart-container .cart-content ul li {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  margin-top: 1rem;
+  border-top: 0.5px solid black;
+  padding-top: 30px;
 }
 
 .cart-container .cart-content ul li .Container{
@@ -84,6 +103,7 @@
 .cart-container .cart-content ul li .Container .NameQuantity .Name{
   font-weight: 400;
 }
+
 
 
 .cart-container .cart-content ul li .Container .NameQuantity .Quantity{
@@ -136,6 +156,9 @@
 }
 
 
+.cart-container .cart-content ul li .PriceTrash .Trash svg{
+  cursor: pointer;
+}
 
 
 
@@ -144,4 +167,45 @@
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cart-container .cart-content .total-price h2{
+  color: #751FFF;
+  font-weight: 700;
+}
+
+.cart-container .cart-content .total-price p{
+  color: #751FFF;
+  font-weight: 700;
+}
+
+
+@media(max-width: 768px){
+  .cart-container {
+    width: 100%;
+  }
+
+  .cart-container .cart-content ul{
+    max-height: 55%;
+  }
+
+  .cart-container .cart-content ul li .Container img{
+    width: 70px;
+    height: 70px;
+  }
+  
+  .cart-container .cart-content ul li .Container .NameQuantity{
+    width: 150px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .cart-container .cart-content .total-price{
+    padding: 1rem;
+  }
 }

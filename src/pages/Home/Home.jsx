@@ -1,5 +1,7 @@
 import "./Home.css"
 
+import { Helmet } from 'react-helmet';
+
 import { useState, useEffect } from "react"
 import { Products } from "../../components/Products/Products"
 import { fetchHome } from "../../services/api"
@@ -31,8 +33,8 @@ const Home = () => {
 
   return(
     <main>
-      <div className="container">
-
+      <Helmet title='ShopEasy' />
+      <div className="ContainerHome">
         <div className="container-image">
           <img src={BackMen} />
           <div className="text">

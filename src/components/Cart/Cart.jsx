@@ -27,7 +27,11 @@ const Cart = ({ isOpen, onClose }) => {
 
 
         <div className="total-price">
-          <strong>Preço Total: R$ {totalPrice.toFixed(2)}</strong>
+          <h2>Preço Total: </h2>
+          <div className="price">
+            <h2>R$ {totalPrice.toFixed(2)}</h2>
+            <p>Ou 10x de R$ {totalPrice.toFixed(1) / 10}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import "../Store/Store.css";
 
+import { Helmet } from 'react-helmet'
+
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchSearch } from "../../services/api";
@@ -39,7 +41,9 @@ const Search = () => {
   }
 
   return (
-    <div>
+    <div className="container">
+      <Helmet title={`${searchQuery} | ShopEasy`} />
+      <h1 className="">{`Resultados para: ${searchQuery}`}</h1>
       <section className="container-products">
         <div>
           <div className="product">

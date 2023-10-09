@@ -6,7 +6,7 @@ import { isStrongPassword } from "../../utils/passwordUtils";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { toast, ToastContainer} from "react-toastify";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const [displayName, setDisplayName] = useState("");
@@ -123,19 +123,7 @@ const Register = () => {
           Voçê já tem uma conta?{" "}
           <Link to={`/login`}> Acesse sua conta aqui</Link>
         </p>
-      </div>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />   
+      </div>   
     </main>
   );
 };

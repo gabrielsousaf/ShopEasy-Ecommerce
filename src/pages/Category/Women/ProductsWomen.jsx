@@ -25,7 +25,7 @@ const ProductsWomen = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <section className="container-products">
         <div>
           <h1>Roupas Femininas</h1>

@@ -21,7 +21,7 @@ const Store = () => {
   }, [])
 
   return (
-    <div>
+    <div className="container">
       <section className="container-products">
         <div>
           <h1>Nossos principais produtos</h1>
