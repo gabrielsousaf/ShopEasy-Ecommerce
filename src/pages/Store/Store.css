@@ -31,7 +31,7 @@
 }
 
 @media(max-width:1200px){
-  .container-products{
+  .container{
     padding-top: 8rem;
   }
 }
