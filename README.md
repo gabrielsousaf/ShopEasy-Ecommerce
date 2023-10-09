@@ -5,7 +5,7 @@
 
 
 # 📱 ShopEasy Ecommerce React.
-O projeto é um E-Commerce chamado DevShop que simula um site de vendas a qual possui roupas masculinas, femininas, joalherias e eletrônicos. Nele foi consumido uma  API com Axios, a qual possui alguns produtos de cada categoria acima para representar uma loja verídica.
+O projeto é um E-Commerce chamado ShopEasy que simula um site de vendas a qual possui roupas masculinas, femininas, joalherias e eletrônicos. Nele foi consumido uma  API com Axios, a qual possui alguns produtos de cada categoria acima para representar uma loja verídica.
 
 A &nbsp;[API](https://fakestoreapi.com/docs) utilizada é a Fake Store API que é facilmente encontrada no Google através de uma pesquisa ou no&nbsp;[GitHub](https://github.com/keikaavousi/fake-store-api) do criador que está devidamente explicado. Ela possui algumas opções:
 
