@@ -17,6 +17,7 @@ import ProductsMen from "../pages/Category/Men/ProductsMen";
 import ProductsWomen from "../pages/Category/Women/ProductsWomen";
 import ProductsElectronics from "../pages/Category/Electronics/ProductsElectronics";
 import ProductsJewelery from "../pages/Category/Jewelery/ProductsJewelery";
+import Error404 from "../pages/Page404/Page404"
 
 
 import { AuthProvider } from "../context/AuthContext";
@@ -63,6 +64,7 @@ const AppRoutes = () => {
             />
             <Route path="/products/jewelery" element={<ProductsJewelery />} />
             <Route path='/search' element={<Search />} />
+            <Route path="*" element={<Error404 />} />
           </Route>
         </Routes>
       </CartProvider>
