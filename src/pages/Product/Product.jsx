@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProduct } from "../../services/api";
+import { useLoading } from '../../context/LoadingContext';
 
 import { useCart } from "../../context/CartContext";
 
@@ -16,6 +17,7 @@ const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const { setLoading } = useLoading();
 
   useEffect(() => {
     fetchProduct(id)
@@ -27,8 +29,12 @@ const Product = () => {
       })
       .catch(() => {
         // error handled silently or could show UI feedback
+      })
+      .finally(() => {
+        // clear loading state when product data finished loading
+        if (typeof setLoading === 'function') setLoading(false);
       });
-  }, [id]);
+  }, [id, setLoading]);
 
   if (!product) {
     return <div>Loading...</div>;

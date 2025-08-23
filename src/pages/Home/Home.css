@@ -128,7 +128,7 @@ main .container-products div h1{
 main .container-products div .product{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     height: 100%;
 }

@@ -2,6 +2,7 @@ import "./Products.css";
 
 import { FaStar, FaExpandAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useLoading } from "../../context/LoadingContext";
 import PropTypes from "prop-types";
 
 export const Products = ({ product }) => {
@@ -21,6 +22,8 @@ export const Products = ({ product }) => {
     return stars;
   }  
 
+  const { setLoading } = useLoading();
+
   return (
     <div className="container-product">
       <img
@@ -37,7 +40,7 @@ export const Products = ({ product }) => {
           <div className="RateButton">
             {renderStars()}
             <span>{randomRating}</span>
-            <Link to={`/products/${product.id}`}>
+            <Link to={`/products/${product.id}`} onClick={() => setLoading(true)}>
               <FaExpandAlt /> Ver
             </Link>
           </div>
