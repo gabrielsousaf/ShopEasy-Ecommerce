@@ -1,39 +1,40 @@
 import { useCart } from "../../context/CartContext";
-import { FaTrash } from "react-icons/fa"
+import { FaTrash } from "react-icons/fa";
+import PropTypes from "prop-types";
 
 import { toast } from "react-toastify";
 
 
 const CartItem = ({ product }) => {
-  console.log("Product in CartItem:", product);
   const { removeFromCart, updateCartItemQuantity } = useCart();
 
-  const handleIncreaseQuantity = () => { 
-    updateCartItemQuantity(product.id, 1);
+  const id = product?.id;
+
+  const handleIncreaseQuantity = () => {
+    if (id) updateCartItemQuantity(id, 1);
   };
 
   const handleDecreaseQuantity = () => {
-    updateCartItemQuantity(product.id, -1);
+    if (id) updateCartItemQuantity(id, -1);
   };
 
   const handleRemove = () => {
-    toast.warning("Produto removido do carrinho!")
-    removeFromCart(product.id);
-    console.log("teste")
-
+    toast.warning("Produto removido do carrinho!");
+    if (id) removeFromCart(id);
   };
 
-  const formattedPrice = (Math.round(product.price * 100) / 100).toFixed(2);
+  const priceNumber = Number(product?.price) || 0;
+  const formattedPrice = (Math.round(priceNumber * 100) / 100).toFixed(2);
 
   return (
-    <li key={product.id}>
+    <li>
       <div className="Container">
-        <img src={product.image} alt={product.title} />
+        <img src={product?.image || '/icon.png'} alt={product?.title || 'produto'} />
         <div className="NameQuantity">
-          <h2 className="Name">{product.title}</h2>
+          <h2 className="Name">{product?.title}</h2>
           <div className="Quantity">
             <button onClick={handleDecreaseQuantity}>-</button>
-            <span>{product.quantity}</span>
+            <span>{product?.quantity || 0}</span>
             <button onClick={handleIncreaseQuantity}>+</button>
           </div>
         </div>
@@ -45,11 +46,23 @@ const CartItem = ({ product }) => {
           <span>R$ {formattedPrice}</span>
         </div>
         <div className="Trash">
-          <FaTrash onClick={handleRemove} />
+          <button aria-label="Remover do carrinho" onClick={handleRemove} style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}>
+            <FaTrash />
+          </button>
         </div>
       </div>
     </li>
   );
+};
+
+CartItem.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    title: PropTypes.string,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    quantity: PropTypes.number,
+    image: PropTypes.string,
+  }).isRequired,
 };
 
 export default CartItem;

@@ -54,8 +54,7 @@ export const useAuthentication = () => {
       });
       return user;
     } catch (error) {
-      console.log(error.message);
-      console.log(typeof error.message);
+  // error.message logged removed in production
 
       let systemErrorMessage;
 

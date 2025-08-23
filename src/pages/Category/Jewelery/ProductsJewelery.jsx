@@ -10,17 +10,16 @@ const ProductsMen = () => {
 
   useEffect(() => {
     fetchCategoryJewelery()
-      .then((data) => {
-        console.log("Data From API:", data);
+  .then((data) => {
         const productsWithRating = data.map((product) => ({
           ...product,
           rating: (Math.random() * (5 - 3) + 3).toFixed(1), // Gera um número entre 1 e 5
         }));
-        console.log("Products:", productsWithRating);
+        
         setProducts(productsWithRating);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        // error handled silently or could show UI feedback
       });
   }, []);
 

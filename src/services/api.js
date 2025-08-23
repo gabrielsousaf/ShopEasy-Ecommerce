@@ -29,10 +29,17 @@ export const fetchStore = async() => {
 export const fetchSearch = async (query) => {
   try{
     const res = await api.get('')
-    return res.data;
+    const data = res.data;
+    const term = String(query || '').trim().toLowerCase();
+    if (!term) return data;
+    return data.filter(item => {
+      const title = String(item.title || '').toLowerCase();
+      const description = String(item.description || '').toLowerCase();
+      return title.includes(term) || description.includes(term);
+    });
   }
   catch(error) {
-    console.error("Error fetching products Store:", error);
+    console.error("Error fetching products Search:", error);
   }
 }
 
@@ -62,8 +69,9 @@ export const fetchProductsByCategory = async (category) => {
 
 export const fetchCategoryMen = async () =>{
   try{
-    const res = await api.get(`/category/${encodeURIComponent("men's clothing")}`);
-    return res.data;
+  // fetch all and filter locally to keep image URLs consistent across endpoints
+  const res = await api.get('');
+  return res.data.filter(item => item.category === "men's clothing");
   }
   catch(error){
     console.error("Error fetching products Men:", error);
@@ -73,8 +81,8 @@ export const fetchCategoryMen = async () =>{
 
 export const fetchCategoryWomen = async () =>{
   try{
-    const res = await api.get(`/category/women's%20clothing`);
-    return res.data;
+  const res = await api.get('');
+  return res.data.filter(item => item.category === "women's clothing");
   }
   catch(error){
     console.error("Error fetching products Women:", error);
@@ -84,8 +92,8 @@ export const fetchCategoryWomen = async () =>{
 
 export const fetchCategoryElectronics = async () =>{
   try{
-    const res = await api.get(`/category/electronics`);
-    return res.data;
+  const res = await api.get('');
+  return res.data.filter(item => item.category === 'electronics');
   }
   catch(error){
     console.error("Error fetching products Electronics:", error);
@@ -95,8 +103,8 @@ export const fetchCategoryElectronics = async () =>{
 
 export const fetchCategoryJewelery = async () =>{
   try{
-    const res = await api.get(`/category/jewelery`);
-    return res.data;
+  const res = await api.get('');
+  return res.data.filter(item => item.category === 'jewelery');
   }
   catch(error){
     console.error("Error fetching products Jewelery:", error);

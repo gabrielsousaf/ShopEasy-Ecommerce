@@ -56,8 +56,7 @@ const Register = () => {
       return;
     }
 
-    const res = await createUser(user);
-    console.log(res);
+  const res = await createUser(user);
   };
 
   useEffect(() => {

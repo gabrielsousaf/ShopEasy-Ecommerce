@@ -25,8 +25,8 @@ const Product = () => {
           image: data.image,
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        // error handled silently or could show UI feedback
       });
   }, [id]);
 
