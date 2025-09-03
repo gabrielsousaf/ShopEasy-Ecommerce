@@ -43,4 +43,8 @@
     "environment": "jsdom",
     "setupFiles": "./vitest.setup.js"
   }
+  ,
+  "engines": {
+    "node": ">=22"
+  }
 }
