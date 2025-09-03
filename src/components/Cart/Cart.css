@@ -7,17 +7,38 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .cart-container {
   position: fixed;
   right: 0;
   top: 0;
-  width: 500px;
+  width: 420px;
+  max-width: calc(100% - 20px);
   height: 100%;
-  background-color: #fff;
+  background-color: #ffffff;
   z-index: 9999;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  padding: 1rem;
+  transform: translateX(110%);
+  transition: transform 0.32s cubic-bezier(.2,.9,.2,1);
+  padding: 1.25rem;
+  box-shadow: -20px 30px 60px rgba(22,18,38,0.18);
+  border-left: 1px solid rgba(117,31,255,0.06);
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-container.open {
@@ -33,38 +54,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
 }
 
 .cart-container .cart-content .cart-content-title h2{
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.6px;
+  color: #161323;
   font-weight: 700;
 }
 
 .cart-container .cart-content .cart-content-title svg{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: 200ms all ease-in-out;
+  transition: transform 160ms ease, color 160ms ease;
+  color: #6b6b7a;
 }
-
 .cart-container .cart-content .cart-content-title svg:hover{
   color: #751FFF;
+  transform: rotate(10deg);
 }
 
-
-
 .cart-container .cart-content ul{
-  margin-top: 4rem;
+  margin-top: 1.25rem;
   overflow-y: auto;
-  max-height: 75%;
+  max-height: calc(100% - 200px);
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 .cart-container .cart-content ul::-webkit-scrollbar {
-  width: 2px;
+  width: 6px;
 }
 
 .cart-container .cart-content ul::-webkit-scrollbar-thumb {
-  background-color: #751FFF;
+  background-color: rgba(117,31,255,0.95);
   border-radius: 6px; 
 }
 
@@ -73,13 +100,15 @@
   border-radius: 6px;
 }
 
-
 .cart-container .cart-content ul li {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
-  border-top: 0.5px solid black;
-  padding-top: 30px;
+  margin-top: 0.15rem;
+  padding: 6px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(23,20,40,0.04);
+  align-items: center;
 }
 
 .cart-container .cart-content ul li .Container{
@@ -88,36 +117,38 @@
 }
 
 .cart-container .cart-content ul li .Container img{
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f7f8fd;
+  padding: 3px;
 }
 
 .cart-container .cart-content ul li .Container .NameQuantity{
-  width: 250px;
-  height: 90px;
+  width: 190px;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 6px;
 }
 
 .cart-container .cart-content ul li .Container .NameQuantity .Name{
-  font-weight: 400;
+  font-weight: 500;
+  color: #22202a;
+  font-size: 0.95rem;
 }
 
-
-
 .cart-container .cart-content ul li .Container .NameQuantity .Quantity{
-  margin-top: 10px;
+  margin-top: 6px;
   display: flex;
   align-items: center;
-  width: 100px;
+  width: 82px;
   height: 30px;
-  -webkit-animation: justify;
   justify-content: space-between;
-  padding: 0px 5px;
-  border-radius: 4px;
-  background: #f7f8fd;
-  border: 1px solid #e5e5e5;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: linear-gradient(180deg,#fbfbff,#f7f8fd);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .cart-container .cart-content ul li .Container .NameQuantity h2{
@@ -126,11 +157,20 @@
 }
 
 .cart-container .cart-content ul li .Container .NameQuantity .Quantity button{
-  font-size: 30px;
+  font-size: 18px;
+  width: 28px;
+  height: 28px;
+  display: inline-grid;
+  place-items: center;
   background: transparent;
   border: none;
-  color: #ff7d1b;
+  color: #5a3bff;
   cursor: pointer;
+  transition: transform 140ms ease, color 140ms ease;
+}
+.cart-container .cart-content ul li .Container .NameQuantity .Quantity button:hover{
+  transform: scale(1.06);
+  color: #751FFF;
 }
 
 .cart-container .cart-content ul li .Container .NameQuantity .Quantity input{
@@ -142,8 +182,10 @@
 
 .cart-container .cart-content ul li .PriceTrash{
   display: flex;
-  justify-content: right;
-  min-width: 100px;
+  justify-content: flex-end;
+  min-width: 48px;
+  gap: 4px;
+  align-items: center;
 }
 
 .cart-container .cart-content ul li .PriceTrash .Price span{
@@ -152,40 +194,73 @@
 }
 
 .cart-container .cart-content ul li .PriceTrash .Price{
-  width: 100%;
+  width: auto;
+  color: #161323;
+  text-align: right;
+  min-width: 44px;
 }
-
 
 .cart-container .cart-content ul li .PriceTrash .Trash svg{
   cursor: pointer;
+  color: #b93f3f;
 }
 
-
-
+.cart-container .cart-content .cart-actions{
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
 .cart-container .cart-content .total-price{
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
+  padding: 0.6rem 0.4rem;
+  border-top: 1px dashed rgba(23,20,40,0.06);
 }
 
 .cart-container .cart-content .total-price h2{
-  color: #751FFF;
+  color: #161323;
   font-weight: 700;
 }
 
 .cart-container .cart-content .total-price p{
-  color: #751FFF;
-  font-weight: 700;
+  color: #6b6b7a;
+  font-weight: 600;
 }
 
+.cart-container .cart-content .actions-row{
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: #6b6b7a;
+  border: 1px solid rgba(23,20,40,0.06);
+}
+
+.btn--primary {
+  background: linear-gradient(90deg,#5a3bff,#751fff);
+  color: #fff;
+}
 
 @media(max-width: 768px){
   .cart-container {
     width: 100%;
+    border-radius: 0;
   }
 
   .cart-container .cart-content ul{
@@ -193,19 +268,19 @@
   }
 
   .cart-container .cart-content ul li .Container img{
-    width: 70px;
-    height: 70px;
+    width: 56px;
+    height: 56px;
   }
   
   .cart-container .cart-content ul li .Container .NameQuantity{
-    width: 150px;
-    height: 70px;
+    width: 130px;
+    height: 56px;
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 8px;
   }
 
   .cart-container .cart-content .total-price{
-    padding: 1rem;
+    padding: 0.5rem;
   }
 }
